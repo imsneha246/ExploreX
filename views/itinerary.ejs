@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generated Itinerary Page</title>
+  <link rel="stylesheet" href="/css/itineraryGen.css" />
+  <link rel="stylesheet" href="/css/pageloader.css" />
+  <link rel="stylesheet" href="/css/itinerary.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+   
+</head>
+
+<body>
+  
+
+  <div class="main-container" style="display:<% if (!itinerary) { %> flex<% } else { %> none<% } %>;">
+   <br><%- include('partials/nav') %> 
+    <h1 id="genTitle"><br><br>Generate your perfect itinerary</h1></h1>
+    <% if (error) { %>
+    <p class="error"><%= error %></p>
+    <% } %>
+    <br><br>
+    <div class="form-container">
+      <form action="/itinerary" method="post" id="itinerary-form" onsubmit="return showLoading()">
+        <input type="number" name="days" placeholder="Enter number of days" max="7" required />
+        <input type="number" name="budget" placeholder="Enter budget" max="9999999" required />
+        <input type="text" name="currency" placeholder="Enter currency" minlength="3" maxlength="3" required />
+        <input type="number" name="members" placeholder="Enter number of members" max="20" required />
+        <input type="text" name="city" placeholder="Enter city" maxlength="20" required />
+        <input type="text" name="country" placeholder="Enter country" maxlength="10" required />
+        <button type="submit">Generate Itinerary</button>
+      </form>
+      
+    </div>
+    <div id="loading-img">
+      <div class="loader">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+      </div>
+    </div>
+  
+  </div>
+ 
+  <% if (itinerary) { %> <% for (let i=0; i < itinerary.length; i++) { %>
+  <div class="day<%= itinerary[i].day %>">
+    <div class="parent">
+      <div class="banner_img">
+        <%- include('partials/nav') %>
+        <p id="date">DAY <%= itinerary[i].day %></p>
+        <p id="month"><%= itinerary[i].location %></p>
+        <br />
+        <% if (itinerary.length > 1) { %>
+        <button  onclick="showPreviousDay()">Previous</button>
+        <button style="margin-left: 10px;" onclick="showNextDay()">Next</button>
+        <% } %>
+        <% if (generated) { %>
+        <button style="margin-left: 10px;" class="save" onclick="regenerate()">Regenerate</button>
+        <% } else { %>
+        <button class="save" onclick="goBack()">My Account</button>
+        <script>
+          function goBack() {
+            window.location.href = "/me";
+          }
+        </script>
+        <% } %>
+      </div>
+    </div>
+    <div class="nav2">
+      <a onclick="showRestaraunt('<%= itinerary[i].day %>')">Restaurants</a>
+      <a onclick="showActivites('<%= itinerary[i].day %>')">Activities</a>
+      <a onclick="showAccom('<%= itinerary[i].day %>')">Accomodations</a>
+      <% if (weather) { %>
+      <a onclick="showWeather('<%= itinerary[i].day %>')">Weather</a>
+      <% } %>
+    </div>
+    <div class="container2" id="restaraunt_day_<%= itinerary[i].day %>">
+      <h2>Restaurants</h2>
+      <div class="restaraunts">
+        <% for (let j=0; j < itinerary[i].restaurants.length; j++) { %>
+        <div class="restaraunt-card" onclick="booking('rest', '<%= itinerary[i].restaurants[j].name %>')">
+          <img onerror="imgError(this)" src="<%= itinerary[i].restaurants[j].image %>" alt="<%= itinerary[i].restaurants[j].name %>" />
+          <div class="restaraunt-card-content">
+            <h3><%= itinerary[i].restaurants[j].name %></h3>
+            <p class="restaraunt-description">
+              <%= itinerary[i].restaurants[j].cuisine %><br />
+            </p>
+            <br><br><br><br><br>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Styled Checkboxes</title>
+                <style>
+                    .horizontal-checkboxes {
+                      display: flex;
+                        height: 40px;
+                        width: 60px;
+                        gap: 10px; 
+                    }
+            
+                    .styled-checkbox {
+                        border: 1px solid #ccc;
+                        border-radius: 10px;
+                        padding: 10px;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        transition: border-color 0.3s;
+                    }
+            
+                    .styled-checkbox:hover {
+                        border-color: #888;
+                    }
+            
+                    .styled-checkbox input {
+                        margin-right: 10px;
+                        cursor: pointer;
+                    }
+            
+                    .styled-checkbox .label-text {
+                        display: flex;
+                        flex-direction: column;
+                    }
+            
+                    .styled-checkbox .main-label {
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                    }
+            
+                    .styled-checkbox .sub-label {
+                        color: #888;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="horizontal-checkboxes">
+                    <label class="styled-checkbox">
+                        <input type="checkbox" name="option1" value="1">
+                        <div class="label-text">
+                            <span class="main-label">Breakfast</span>
+                          
+                        </div>
+                    </label>
+                    <label class="styled-checkbox">
+                        <input type="checkbox" name="option2" value="2">
+                        <div class="label-text">
+                            <span class="main-label">Lunch</span>
+                          
+                        </div>
+                    </label>
+                    <label class="styled-checkbox">
+                        <input type="checkbox" name="option3" value="3">
+                        <div class="label-text">
+                            <span class="main-label">Dinner</span>
+                          
+                        </div>
+                    </label>
+                </div>
+            </body>
+            </html>
+            
+<br>
+            <p class="restaraunt-rating">
+              Speciality: <%= itinerary[i].restaurants[j].specialty %>
+              <span class="restaraunt-reviews">(<%= itinerary[i].restaurants[j].location %>)</span>
+            </p>
+            
+          </div>
+      
+          <div class="restaraunt-price">
+            <a href="/contact">      <button style="border: 1px solid #ccc; margin-left: 20px;margin-bottom: 20px; color:black;background-color:rgb(228, 228, 227); border-radius: 10px; padding: 10px; display: flex; align-items: center;">Add to cart</button></a>
+
+            <p><%= itinerary[i].restaurants[j].price_range %></p>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <div class="container3" id="activity_day_<%= itinerary[i].day %>">
+      <div class="activity">
+        <h2>Activities</h2>
+        <div class="activity-cards">
+          <% for (let a=0; a < itinerary[i].activities.length; a++) { %>
+          <div class="activity-card">
+            <img onerror="imgError(this)" src="<%= itinerary[i].activities[a].image %>" alt="<%= itinerary[i].activities[a].name %>" />
+            <div class="activity-card-content">
+              <h3><%= itinerary[i].activities[a].name %>
+                <a href="/contact"> <button style="border: 1px solid #ccc; margin-bottom: 10px; margin-left: 440px; height: 40px; width:120px;  align-items:center;color:black;background-color:rgb(228, 228, 227); border-radius: 10px; padding: 10px; display: flex; align-items: center;">Add to cart</button></a> </h3>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="container4" id="acomm_day_<%= itinerary[i].day %>">
+      <div class="accomodation">
+        <h2>Accomodations</h2>
+        <% for (let k=0; k < itinerary[i].accommodations.length; k++) { %>
+        <div class="accomodation-card" onclick="booking('accom', '<%= itinerary[i].accommodations[k].name %>')">
+          <img onerror="imgError(this)" src="<%= itinerary[i].accommodations[k].image %>" alt="<%= itinerary[i].accommodations[k].name %>" alt="Hotel Image" />
+          <div class="accomodation-card-content">
+            <h3><%= itinerary[i].accommodations[k].name %></h3>
+            <p class="accomodation-description">
+              <%= itinerary[i].accommodations[k].description %>
+            </p>
+            <p class="accomodation-rating">
+              <%= itinerary[i].accommodations[k].location %>
+            </p>
+          </div>
+          <div class="accomodation-price">
+            <a href="/contact">          <button style="border: 1px solid #ccc; margin-left: 20px;margin-bottom: 20px; color:black;background-color:rgb(228, 228, 227); border-radius: 10px; padding: 10px; display: flex; align-items: center;">Add to cart</button></a>
+
+            <p><%= itinerary[i].accommodations[k].price_range %></p>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <% if (generated) { %>
+    <div class="container5" id="weather_day_<%= itinerary[i].day %>">
+      <div class="weather">
+        <% if (weather) { %>
+        <h2>Current Weather Details</h2>
+        <div class="card">
+          <img onerror="imgError(this)" class="desc-img" src="<%= weather.image %>" alt="" />
+          <p>Weather: <%= weather.desc %></p>
+          <p>Temperature: <%= weather.temp %>°C</p>
+          <p>Humidity: <%= weather.humidity %>%</p>
+          <p>Wind Speed: <%= weather.wind %></p>
+        </div>
+        <h2>Weather Forecast</h2>
+        <div class="forecasts">
+          <% for (let w=0; w < weather.forecast.length; w++) { %>
+          <div class="forecast-card">
+            <p>Day <%= w + 1 %></p>
+            <p>High: <%= weather.forecast[w].high %>°C</p>
+            <p>Low: <%= weather.forecast[w].low %>°C</p>
+            <p>Weather: <%= weather.forecast[w].desc %></p>
+          </div>
+          <% } %>
+        </div>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map with Search</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <style>
+        #map { height: 400px; width: 80%; }
+    </style>
+</head>
+<body>
+  <br><br>
+    <h1 style="color: rgb(255, 255, 255)">Explore this location on map</h1>
+    <form id="locationForm">
+        <input type="text" id="place" placeholder="Enter a place" value="Jaipur">
+        <button type="submit" style="border: 1px solid #ccc;margin-left:80px; background-color:rgb(95, 94, 94);color:white ;height: 30px; width: 80px; border-radius: 10px; padding: 10px; display: flex; align-items: center;">Search</button>
+    </form>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+       
+        var map = L.map('map').setView([26.9124, 75.7873], 13); 
+
+       
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+       
+        L.marker([26.9124, 75.7873]).addTo(map)
+            .bindPopup('<b>Jaipur</b>').openPopup();
+
+        document.getElementById('locationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var place = document.getElementById('place').value;
+
+          
+            var geocodeUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${place}`;
+
+            axios.get(geocodeUrl)
+                .then(function(response) {
+                    if (response.data.length > 0) {
+                        var lat = response.data[0].lat;
+                        var lon = response.data[0].lon;
+                        
+                       
+                        map.setView([lat, lon], 13);
+
+                     
+                        L.marker([lat, lon]).addTo(map)
+                            .bindPopup(`<b>${place}</b>`).openPopup();
+                    } else {
+                        alert('Location not found!');
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Error fetching geocode:', error);
+                    alert('Fetching');
+                });
+        });
+    </script>
+</body>
+</html>
+
+      </div>
+    </div>
+ 
+    <% } else { %>
+    <h2>Weather Details</h2>
+    <p>Weather details not available</p>
+    <% } %> <% } %>
+  </div>
+  <% } %> 
+  <script async src="https://api.cronbot.ai/v1/widgets/app/app_qjbf6ln8y0lr"></script>
+  <%- include('partials/footer') %><% } %>
+  <script src="/js/itinerary.js"></script>
+  <% if (generated) { %>
+  <script type="text/javascript">
+  
+    function saveItinerary() {
+      
+      let itineraryName = prompt("Enter a name for your itinerary");
+      if (itineraryName == null || itineraryName == "") {
+        return;
+      } else if (itineraryName.length > 20) {
+        alert("Name must be less than 20 characters");
+        return;
+      }
+
+   
+      alert("If any error occurs, you will have to generate the itinerary again to save it!")
+
+      let itinerary = {
+        "itinerary": []
+      }
+    
+      for (let i = 0; i < <%= itinerary.length %>; i++) {
+        let day = document.querySelector(".day" + (i + 1));
+        let restaurants = day.querySelectorAll(".restaraunt-card");
+        let activities = day.querySelectorAll(".activity-card");
+        let accommodations = day.querySelectorAll(".accomodation-card");
+
+        let dayDetails = {
+          day: i + 1,
+          location: day.querySelector("#month").innerText,
+          restaurants: [],
+          activities: [],
+          accommodations: []
+        }
+
+    
+        for (let j = 0; j < restaurants.length; j++) {
+          let restaurant = {
+            name: restaurants[j].querySelector("h3").innerText,
+            cuisine: restaurants[j].querySelector(".restaraunt-description").innerText,
+            specialty: restaurants[j].querySelector(".restaraunt-rating").innerText,
+            price_range: restaurants[j].querySelector(".restaraunt-price p").innerText,
+            image: restaurants[j].querySelector("img").src
+          }
+          dayDetails.restaurants.push(restaurant);
+        }
+
+        for (let j = 0; j < activities.length; j++) {
+          let activity = {
+            name: activities[j].querySelector("h3").innerText,
+            image: activities[j].querySelector("img").src
+          }
+          dayDetails.activities.push(activity);
+        }
+
+        for (let j = 0; j < accommodations.length; j++) {
+          let accommodation = {
+            name: accommodations[j].querySelector("h3").innerText,
+            description: accommodations[j].querySelector(".accomodation-description").innerText,
+            location: accommodations[j].querySelector(".accomodation-rating").innerText,
+            price_range: accommodations[j].querySelector(".accomodation-price p").innerText,
+            image: accommodations[j].querySelector("img").src
+          }
+          dayDetails.accommodations.push(accommodation);
+        }
+
+        itinerary["itinerary"].push(dayDetails);
+      }
+
+    
+      var form = document.createElement("form");
+      form.setAttribute("method", "post");
+      form.setAttribute("action", "/itinerary/save");
+
+      var input = document.createElement("input");
+      input.setAttribute("type", "hidden");
+      input.setAttribute("name", "itinerary");
+      input.setAttribute("value", JSON.stringify(itinerary));
+
+      form.appendChild(input);
+
+      var input2 = document.createElement("input");
+      input2.setAttribute("type", "hidden");
+      input2.setAttribute("name", "itineraryName");
+      input2.setAttribute("value", itineraryName);
+
+      form.appendChild(input2);
+
+      document.body.appendChild(form);
+
+    
+      form.submit();
+    }
+
+    function regenerate() {
+      let city = "<%= req.body.city %>";
+      let country = "<%= req.body.country %>";
+      let days = "<%= req.body.days %>";
+      let budget = "<%= req.body.budget %>";
+      let currency = "<%= req.body.currency %>";
+      let members = "<%= req.body.members %>";
+
+      let itinerary = {
+        "itinerary": []
+      }
+
+      let oldBody = {
+        city: city,
+        country: country,
+        days: days,
+        budget: budget,
+        currency: currency,
+        members: members
+      }
+
+      oldBody = JSON.stringify(oldBody);
+
+   
+      for (let i = 0; i < <%= itinerary.length %>; i++) {
+        let day = document.querySelector(".day" + (i + 1));
+        let restaurants = day.querySelectorAll(".restaraunt-card");
+        let activities = day.querySelectorAll(".activity-card");
+        let accommodations = day.querySelectorAll(".accomodation-card");
+
+        let dayDetails = {
+          day: i + 1,
+          location: day.querySelector("#month").innerText,
+          restaurants: [],
+          activities: [],
+          accommodations: []
+        }
+
+  
+        for (let j = 0; j < restaurants.length; j++) {
+          let restaurant = {
+            name: restaurants[j].querySelector("h3").innerText,
+            cuisine: restaurants[j].querySelector(".restaraunt-description").innerText,
+            specialty: restaurants[j].querySelector(".restaraunt-rating").innerText,
+            price_range: restaurants[j].querySelector(".restaraunt-price p").innerText,
+            image: restaurants[j].querySelector("img").src
+          }
+          dayDetails.restaurants.push(restaurant);
+        }
+
+    
+        for (let j = 0; j < activities.length; j++) {
+          let activity = {
+            name: activities[j].querySelector("h3").innerText,
+            image: activities[j].querySelector("img").src
+          }
+          dayDetails.activities.push(activity);
+        }
+
+        for (let j = 0; j < accommodations.length; j++) {
+          let accommodation = {
+            name: accommodations[j].querySelector("h3").innerText,
+            description: accommodations[j].querySelector(".accomodation-description").innerText,
+            location: accommodations[j].querySelector(".accomodation-rating").innerText,
+            price_range: accommodations[j].querySelector(".accomodation-price p").innerText,
+            image: accommodations[j].querySelector("img").src
+          }
+          dayDetails.accommodations.push(accommodation);
+        }
+
+        itinerary["itinerary"].push(dayDetails);
+      }
+
+      let form2 = document.createElement("form");
+      form2.setAttribute("method", "post");
+      form2.setAttribute("action", "/itinerary");
+
+      let input = document.createElement("input");
+      input.setAttribute("type", "hidden");
+      input.setAttribute("name", "oldBody");
+      input.setAttribute("value", oldBody);
+      form2.appendChild(input);
+
+      let input2 = document.createElement("input");
+      input2.setAttribute("type", "hidden");
+      input2.setAttribute("name", "regenerated");
+      input2.setAttribute("value", "true");
+      form2.appendChild(input2);
+
+      let input3 = document.createElement("input");
+      input3.setAttribute("type", "hidden");
+      input3.setAttribute("name", "itinerary");
+      input3.setAttribute("value", JSON.stringify(itinerary));
+      form2.appendChild(input3);
+      document.body.appendChild(form2);
+
+      var dayDivs = document.querySelectorAll('[class^="day"]');
+      for (var i = 1; i < dayDivs.length; i++) {
+        dayDivs[i].style.display = "none";
+      }
+
+      showLoading();
+
+      form2.submit();
+    }
+  </script>
+  <% } %>
+</body>
+
+</html>

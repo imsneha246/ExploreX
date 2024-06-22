@@ -1,0 +1,25 @@
+{
+  "name": "Explorex",
+  "version": "1.0.0",
+  "description": "- Make sure Node is installed (https://nodejs.org/en/download/)\r - Make sure MySQL is installed (https://dev.mysql.com/downloads/installer/)\r - Make sure `config.json` is configured properly\r - Open Terminal in this project and run the following command for initial setup\r     + `npm install`\r - Run the following command to start the server\r     + `npm start`",
+  "main": "index.js",
+  "scripts": {
+    "start": "cls && echo Updating NPM Packages... (Press ctrl+c to exit) && npm install && cls && echo Starting Server... (Press ctrl+c to exit) && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tinoschroeter/weather-js": "^3.0.2",
+    "better-sqlite3": "^9.4.1",
+    "bootstrap": "^5.3.3",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "g-i-s": "^2.1.7",
+    "g4f": "^1.4.2",
+    "nodemailer": "^6.9.10",
+    "quick.db": "^9.1.7"
+  }
+}

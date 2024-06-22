@@ -1,0 +1,443 @@
+* {
+    font-family: Arial, sans-serif;
+    ;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: transparent;
+    color: #333;
+}
+
+
+.banner_img {
+    background: url("https://wallpapercave.com/wp/wp2481186.jpg")no-repeat;
+    height: 50vh;
+    color:#494848;
+    background-size: 110% 160%;
+    background-position: center;
+    margin: 0;
+    padding: 1rem;
+}
+
+.nav {
+    height: 10vh;
+    background-color:  transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+
+}
+
+.nav #Home {
+    margin-right: auto;
+    text-decoration: none;
+    color: white;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.banner_img p {
+    color: rgb(0, 0, 0);
+}
+
+#date {
+    display: inline-block;
+    font-size: 6rem;
+    font-weight: 500;
+    padding-bottom: 3rem;
+    color:#fff;
+}
+
+#month {
+    display: inline;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-left: 50px;
+    color:#fff;
+}
+
+
+.nav2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+    height: 6vh;
+    margin: 0;
+    padding: 3px;
+    box-shadow: 5px 3px 3px #606060;
+    background-color: #102C57;
+}
+
+.nav2 a {
+    text-decoration: underline;
+    text-decoration-color: #FF4A52;
+    color: white;
+    text-decoration-thickness: 0em;
+    text-underline-offset: 0em;
+}
+
+.nav2 a:hover {
+    color: #ffffff;
+    /* Underline with animation */
+    text-decoration: underline;
+    text-decoration-color: #ffffff;
+    text-decoration-thickness: 0.2em;
+    text-underline-offset: 0.4em;
+    transition: text-decoration 0.5s;
+}
+
+a:visited {
+    color: white;
+}
+
+
+.container2 {
+    /* height: 180vh; */
+    max-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(231, 228, 228);
+}
+/* restaraunts*/
+.restaraunts {
+   
+    height: 100%;
+    max-height: auto;
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    /* margin: 50px auto; */
+    padding: 20px 0;
+}
+
+.restaraunt-card {
+    height: 35vh;
+    width: 85%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    background-color: white;
+    border: black solid 1px;
+}
+
+.restaraunt-card:hover {
+    transform: translateY(-5px);
+}
+
+.restaraunt-card img {
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0;
+}
+
+.restaraunt-card-content {
+    width: 50%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.restaraunt-card-content h3 {
+    font-size: 1.2rem;
+}
+
+.restaraunt-description {
+    margin: 0;
+}
+
+.restaraunt-rating {
+    font-weight: bold;
+    color: #007bff;
+    margin-top: auto;
+}
+
+.restaraunt-reviews {
+    color: #6b6666;
+}
+
+.restaraunt-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+    padding: 20px;
+    margin-top: auto;
+    margin-left: auto;
+
+}
+
+/*container3*/
+.container3 {
+    height: 100%;
+    
+    background-color: rgb(231, 228, 228);
+    display: block;
+}
+
+.activity {
+    /* height: 100%; */
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.activity-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    padding: 20px 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.activity-card {
+    /* height: 60vh; */
+    width: 40%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: black 1px solid;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+.activity-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.activity-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px;
+}
+
+.avtivity-card-content h3 {
+    font-size: 1.2rem;
+}
+
+
+.activity-price {
+    height: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+    padding: 0 15px;
+    margin-top: auto;
+}
+
+/* container4*/
+.container4 {
+    /* height: 180vh; */
+    max-height: auto;
+    background-color: rgb(231, 228, 228);
+    display: block;
+}
+
+/* accomodation*/
+.accomodation {
+    background-color: rgb(231, 228, 228);
+    height: 100%;
+    gap: 30px;
+    max-height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* margin: 50px auto; */
+    padding: 20px 0;
+    flex-direction: column;
+}
+
+.accomodation-card {
+    height: 35vh;
+    width: 90%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    border: black 1px solid;
+}
+
+.accomodation-card:hover {
+    transform: translateY(-5px);
+}
+
+.accomodation-card img {
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0;
+}
+
+.accomodation-card-content {
+    width: 50%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+
+}
+
+.accomodation-card-content h3 {
+    font-size: 1.2rem;
+}
+
+.accomodation-description {
+    margin: 0;
+}
+
+.accomodation-rating {
+    font-weight: bold;
+    color: #007bff;
+    margin-top: auto;
+}
+
+.accomodation {
+    color: #888;
+}
+
+.accomodation-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+    padding: 20px;
+    margin-top: auto;
+    margin-left: auto;
+
+}
+
+/* Weather */
+.container5 {
+    /* height: 180vh; */
+    max-height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(231, 228, 228);
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: black;
+    padding: 20px 0;
+}
+
+.weather {
+    background-color: rgb(231, 228, 228);
+    height: fit-content;
+    max-height: auto;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    gap: 20px;
+
+    p {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #99B080;
+
+        .desc-image {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .card {
+        padding: 10px;
+        gap: 10px;
+        width: 80%;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        margin-left: 20px;
+        border: black 1px solid;
+
+        /* Align image to top right */
+        img {
+            align-self: flex-end;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+        }
+    }
+
+    .forecasts {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+
+        .forecast-card {
+            /* height: 35vh; */
+            /* text-align: left; */
+            padding: 10px;
+            gap: 10px;
+            width: fit-content;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: self-start;
+            border: black 1px solid;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-image: url("https://images.unsplash.com/photo-1535278750545-741e4f118cd9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+}
+
+.comp {
+    /* height: 100%; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    height: auto;
+    width: 46%;
+    background-color: rgba(0,0,0,0.5);
+    border: 5px rgb(69, 67, 67);
+    border-radius: 30px;
+}
+
+.heading {
+    width: 90%;
+    padding: 10px 30px;
+    font-weight: 500;
+    color: white;
+}
+
+.card-content {
+    padding: 10px 30px;
+    display: flex;
+    color: white;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.3rem;
+    position: relative;
+    top: -100px;
+    /* initial position, text starts from above */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    /* initially invisible */
+    animation: slideIn 2s forwards;
+    /* animation duration and direction */
+}
+
+@keyframes slideIn {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 1;
+    }
+}
+
+#act-head {
+    color: white;
+}
+
+#day-no {
+    font-style: bold;
+    font-weight: 700;
+}
+
+.card-content button {
+    height: 2.5rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}

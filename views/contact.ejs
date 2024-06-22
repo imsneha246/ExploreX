@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/css/contactus.css" />
+    <script src="/js/contactus.js"></script>
+  </head>
+  <body>
+    <%- include('partials/nav') %>
+    <div class="wrapper">
+      <div class="main-content">
+        <main class="content p-4">
+          <h1 class="text-3xl font-bold mb-4">Wonderful</h1>
+          <p class="text-zinc-600 dark-text-zinc-400 mb-4">Explore the world with us</p>
+          <img
+            src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            height="600px"
+            width="400px"
+            alt="Main Image"
+            class="w-full mb-4"
+          />
+          <div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-4">
+            <div class="border p-4">
+              <img
+                src="https://images.unsplash.com/photo-1622308644420-b20142dc993c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Product 1"
+                class="w-full mb-2"
+              />
+              <h2 class="text-xl font-bold">SIKKIM</h2>
+              <p class="text-zinc-600 dark-text-zinc-400">
+                "Join us for a Sikkim adventure where yaks outnumber humans and every corner is
+                Instagram-worthy (yak selfies included)!"
+              </p>
+              <button class="mt-2 bg-blue-500 text-white py-1 px-4 rounded">Add to cart</button>
+            </div>
+            <div class="border p-4">
+              <img
+                src="https://images.unsplash.com/photo-1612438214708-f428a707dd4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2VkYXJuYXRofGVufDB8fDB8fHww"
+                alt="Product 2"
+                class="w-full mb-2"
+              />
+              <h2 class="text-xl font-bold">KEDARNATH</h2>
+              <p class="text-zinc-600 dark-text-zinc-400">
+                "Experience the epic highs and divine vibes of Kedarnath - where even the mountains are
+                chill with the gods!"
+              </p>
+              <button class="mt-2 bg-blue-500 text-white py-1 px-4 rounded">Add to cart</button>
+            </div>
+            <div class="border p-4">
+              <img
+                src="https://www.holidify.com/images/bgImages/UDAIPUR.jpg"
+                alt="Product 3"
+                class="w-full mb-2"
+              />
+              <h2 class="text-xl font-bold">UDAIPUR</h2>
+              <p class="text-zinc-600 dark-text-zinc-400">
+                "Get ready to be royally spoiled in Udaipur, where even the lakes have more bling than
+                your jewelry box!"
+              </p>
+              <button class="mt-2 bg-blue-500 text-white py-1 px-4 rounded">Add to cart</button>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="sidebar bg-zinc-100 dark-bg-zinc-800 p-4">
+        <h2 class="text-2xl font-bold mb-4">Your cart</h2>
+        <div class="cart-item mb-2">
+          <img
+            src="https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Product 1"
+          />
+          <div>
+            <h3 class="text-lg font-bold">SIKKIM</h3>
+            <p class="text-zinc-600 dark-text-zinc-400">Quantity: 1</p>
+          </div>
+          <span>Rs. 4000</span>
+        </div>
+        <div class="cart-item mb-2">
+          <img
+            src="https://images.unsplash.com/photo-1612438214708-f428a707dd4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2VkYXJuYXRofGVufDB8fDB8fHww"
+            alt="Product 2"
+          />
+          <div>
+            <h3 class="text-lg font-bold">KEDARNATH</h3>
+            <p class="text-zinc-600 dark-text-zinc-400">Quantity: 1</p>
+          </div>
+          <span>Rs. 2000</span>
+        </div>
+        <div class="cart-item mb-2">
+          <img
+            src="https://www.holidify.com/images/bgImages/UDAIPUR.jpg"
+            alt="Product 3"
+          />
+          <div>
+            <h3 class="text-lg font-bold">UDAIPUR</h3>
+            <p class="text-zinc-600 dark-text-zinc-400">Quantity: 1</p>
+          </div>
+          <span>Rs. 3000</span>
+        </div>
+        <div class="mt-4 text-right">
+          <span class="text-xl font-bold">Total: Rs. 9000</span>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/footer') %><%  %>
+  </body>
+</html>

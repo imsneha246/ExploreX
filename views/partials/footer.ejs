@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Footer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        top: 0px !important;
+      }
+      .footer {
+        background-color: #022831;
+        color: #D8DFE9;
+        padding: 20px;
+        text-align: center;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer p {
+        margin: 0;
+      }
+      .footer a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 40px;
+      }
+      .footer .links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+      }
+      .footer .links li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <footer class="footer">
+      
+      <% if (req.path === '/about') { %>
+      <a href="/home">Home</a>
+      <% } else { %>
+      <a href="/about">About</a>
+      <% } %>
+      <p>&copy; 2024 All rights reserved by EXPLOREX</p>
+   
+      <a href="/home">Home</a>
+      
+      <div id="google_translate_element"></div>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en', 
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+        setInterval(() => {
+            let top = document.getElementById(':2.container');
+            if (top) top.style.display = "none";
+        }, 300)
+    </script>
+    </footer>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+</html>

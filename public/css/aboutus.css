@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.banner {
+    background-image: url('https://media.cntraveler.com/photos/5e74f9de2e6ca30009d1d4fa/16:9/w_2560%2Cc_limit/Argentina-GettyImages-1146497849.jpg');
+    /* Replace 'background-image.jpg' with the path to your image */
+    background-size: 100% 110%;
+    background-position: center;
+    padding: 3rem;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info {
+    width: 25rem;
+    color: white;
+}
+
+.info h3 {
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.info p {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.info2 {
+    display: grid;
+    grid-template-columns: 40% auto;
+    gap: 5rem;
+    padding: 3rem;
+}
+
+#hrteam_img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+}
+
+.hrteam_info {
+    font-size: 1.2rem;
+}
+
+.hrteam_info h5 {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+}
+
+.info3 {
+    display: grid;
+    grid-template-columns: 55% auto;
+    gap: 5rem;
+    padding: 3rem;
+    background-color: #f5f5f5;
+}
+
+#hrstory_img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+}
+
+.hrstory_info {
+    font-size: 1.2rem;
+}
+
+.hrstory_info h5 {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+}
+
+.get_started {
+    background-color: #e7a457;
+    height: 18vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.get_started p {
+    color: white;
+    margin-right: auto;
+    font-size: 2rem;
+}
+
+#get_started_btn {
+    background-color: #ecac64;
+    color: white;
+    padding: 20px;
+    border-radius: 30px;
+    border: white solid 1px;
+    font-size: 1rem;
+}
