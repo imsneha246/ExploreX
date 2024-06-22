@@ -11,12 +11,14 @@ This project aims to revolutionize the travel planning experience by providing c
 •Integrated Booking: Book flights, trains, hotels, and rentals within the platform.
 •Budget-Friendly Options: Recommendations based on user-defined budgets.
 •Location-Based Services: Utilize Google Maps API for navigation and location suggestions.
+
+
 🚀Technologies Used
-•✅Backend:Express JS, Node JS, Express, Express-Session and Cookie Parser for efficient data management.
-•✅Database: QuickDB
-•✅Frontend: HTML,CSS and Embedded JS for a responsive and user-friendly interface.
-•✅AI Framework: G4f, G-I-S and tinoschroester/weather.js for generating personalized recommendations.
-•✅APIs: Leaflet.js for location-based services and navigation.
+✅Backend:Express JS, Node JS, Express, Express-Session and Cookie Parser for efficient data management.
+✅Database: QuickDB
+✅Frontend: HTML,CSS and Embedded JS for a responsive and user-friendly interface.
+✅AI Framework: G4f, G-I-S and tinoschroester/weather.js for generating personalized recommendations.
+✅APIs: Leaflet.js for location-based services and navigation.
 
 
 👩‍🚀Getting Started
